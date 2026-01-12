@@ -4,6 +4,7 @@ Tailwind CSS spacing scale mappings.
 Tailwind v4 uses a spacing multiplier where 1 unit = 0.25rem = 4px (at 16px base).
 """
 
+from __future__ import annotations
 
 # Default spacing scale in pixels (1 unit = 4px)
 # Based on Tailwind's default spacing scale

@@ -2,7 +2,6 @@
 Tailwind CSS sizing utilities (width, height, max-width, min-width).
 """
 
-
 # Width classes with direct CSS values
 WIDTH_CLASSES: dict[str, str] = {
     # Pixel values (based on spacing scale * 4)
@@ -41,7 +40,6 @@ WIDTH_CLASSES: dict[str, str] = {
     "w-72": "288px",
     "w-80": "320px",
     "w-96": "384px",
-
     # Fractional widths
     "w-1/2": "50%",
     "w-1/3": "33.333333%",
@@ -69,7 +67,6 @@ WIDTH_CLASSES: dict[str, str] = {
     "w-9/12": "75%",
     "w-10/12": "83.333333%",
     "w-11/12": "91.666667%",
-
     # Container sizes (rem values converted to px)
     "w-3xs": "256px",  # 16rem
     "w-2xs": "288px",  # 18rem
@@ -84,7 +81,6 @@ WIDTH_CLASSES: dict[str, str] = {
     "w-5xl": "1024px",  # 64rem
     "w-6xl": "1152px",  # 72rem
     "w-7xl": "1280px",  # 80rem
-
     # Special values
     "w-auto": "auto",
     "w-full": "100%",
@@ -132,7 +128,6 @@ HEIGHT_CLASSES: dict[str, str] = {
     "h-72": "288px",
     "h-80": "320px",
     "h-96": "384px",
-
     # Fractional heights
     "h-1/2": "50%",
     "h-1/3": "33.333333%",
@@ -149,7 +144,6 @@ HEIGHT_CLASSES: dict[str, str] = {
     "h-3/6": "50%",
     "h-4/6": "66.666667%",
     "h-5/6": "83.333333%",
-
     # Special values
     "h-auto": "auto",
     "h-full": "100%",
@@ -164,7 +158,6 @@ MAX_WIDTH_CLASSES: dict[str, str] = {
     "max-w-0": "0px",
     "max-w-px": "1px",
     "max-w-none": "none",
-
     # Container sizes
     "max-w-3xs": "256px",
     "max-w-2xs": "288px",
@@ -179,7 +172,6 @@ MAX_WIDTH_CLASSES: dict[str, str] = {
     "max-w-5xl": "1024px",
     "max-w-6xl": "1152px",
     "max-w-7xl": "1280px",
-
     # Special values
     "max-w-full": "100%",
     "max-w-min": "min-content",
@@ -201,7 +193,6 @@ MIN_WIDTH_CLASSES: dict[str, str] = {
     "min-w-min": "min-content",
     "min-w-max": "max-content",
     "min-w-fit": "fit-content",
-
     # Container sizes
     "min-w-3xs": "256px",
     "min-w-2xs": "288px",

@@ -4,7 +4,6 @@ Tailwind CSS effects utilities (shadows, opacity, etc.).
 Note: These have limited email client support (~60-70%).
 """
 
-
 # Box shadow classes
 # These may not work in all email clients (especially Outlook desktop)
 BOX_SHADOW_CLASSES: dict[str, str] = {
@@ -49,7 +48,6 @@ DISPLAY_CLASSES: dict[str, str] = {
     "inline": "inline",
     "inline-block": "inline-block",
     "hidden": "none",
-
     # Table displays (well supported in email)
     "table": "table",
     "table-caption": "table-caption",
@@ -60,7 +58,6 @@ DISPLAY_CLASSES: dict[str, str] = {
     "table-header-group": "table-header-group",
     "table-row-group": "table-row-group",
     "table-row": "table-row",
-
     # These have poor email support and will be stripped or ignored:
     # "flex", "inline-flex", "grid", "inline-grid", "contents", "flow-root"
 }
@@ -72,13 +69,11 @@ OVERFLOW_CLASSES: dict[str, str] = {
     "overflow-clip": "clip",
     "overflow-visible": "visible",
     "overflow-scroll": "scroll",
-
     "overflow-x-auto": "auto",
     "overflow-x-hidden": "hidden",
     "overflow-x-clip": "clip",
     "overflow-x-visible": "visible",
     "overflow-x-scroll": "scroll",
-
     "overflow-y-auto": "auto",
     "overflow-y-hidden": "hidden",
     "overflow-y-clip": "clip",

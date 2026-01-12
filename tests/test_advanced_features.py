@@ -2,7 +2,7 @@
 
 import pytest
 
-from tailwind_email import convert, TailwindEmailConverter
+from tailwind_email import TailwindEmailConverter, convert
 from tailwind_email.converter import ConversionOptions
 from tailwind_email.transformer import CSSTransformer
 
@@ -206,12 +206,13 @@ class TestSpecialUtilities:
         html = '<span class="sr-only">Screen reader text</span>'
         output = convert(html)
         # sr-only should either be converted or filtered
-        # This tests the handling of accessibility classes
+        assert "Screen reader text" in output
 
     def test_not_sr_only(self) -> None:
         """Test not-sr-only utility."""
         html = '<span class="not-sr-only">Visible text</span>'
         output = convert(html)
+        assert "Visible text" in output
 
 
 class TestComplexBorderScenarios:

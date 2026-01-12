@@ -1,11 +1,10 @@
 """Stress tests and performance tests for the tailwind-email library."""
 
 import time
-from typing import Callable
 
 import pytest
 
-from tailwind_email import convert, TailwindEmailConverter
+from tailwind_email import TailwindEmailConverter, convert
 from tailwind_email.transformer import CSSTransformer
 
 
@@ -14,8 +13,8 @@ class TestManyClasses:
 
     def test_element_with_10_classes(self) -> None:
         """Test element with 10 classes."""
-        html = '''<div class="p-4 m-2 bg-blue-500 text-white font-bold
-                   text-lg rounded-lg shadow-md border border-blue-600">Content</div>'''
+        html = """<div class="p-4 m-2 bg-blue-500 text-white font-bold
+                   text-lg rounded-lg shadow-md border border-blue-600">Content</div>"""
         output = convert(html)
 
         assert "padding: 16px" in output
@@ -31,10 +30,10 @@ class TestManyClasses:
 
     def test_element_with_20_classes(self) -> None:
         """Test element with 20 classes."""
-        html = '''<div class="p-4 px-6 py-8 m-2 mt-4 mb-6 bg-blue-500 text-white
+        html = """<div class="p-4 px-6 py-8 m-2 mt-4 mb-6 bg-blue-500 text-white
                    font-bold text-lg leading-relaxed tracking-wide rounded-lg
                    shadow-md border border-blue-600 w-full max-w-xl h-auto
-                   text-center overflow-hidden">Content</div>'''
+                   text-center overflow-hidden">Content</div>"""
         output = convert(html)
 
         # Verify a subset of important styles
@@ -49,22 +48,62 @@ class TestManyClasses:
     def test_element_with_50_classes(self) -> None:
         """Test element with 50 classes (including filtered ones)."""
         classes = [
-            "p-4", "px-6", "py-8", "pt-2", "pr-4", "pb-6", "pl-8",
-            "m-2", "mx-4", "my-6", "mt-2", "mr-4", "mb-6", "ml-8",
-            "bg-blue-500", "text-white", "border-gray-300",
-            "font-bold", "font-semibold", "text-lg", "text-xl",
-            "leading-relaxed", "leading-tight", "tracking-wide",
-            "rounded-lg", "rounded-t-xl", "rounded-b-md",
-            "shadow-md", "shadow-lg", "opacity-90",
-            "border", "border-2", "border-solid",
-            "w-full", "w-1/2", "max-w-xl", "min-w-0",
-            "h-auto", "h-32", "max-h-64",
-            "text-center", "text-left", "uppercase",
-            "underline", "italic", "truncate",
-            "block", "inline-block", "hidden",
-            "overflow-hidden", "visible",
+            "p-4",
+            "px-6",
+            "py-8",
+            "pt-2",
+            "pr-4",
+            "pb-6",
+            "pl-8",
+            "m-2",
+            "mx-4",
+            "my-6",
+            "mt-2",
+            "mr-4",
+            "mb-6",
+            "ml-8",
+            "bg-blue-500",
+            "text-white",
+            "border-gray-300",
+            "font-bold",
+            "font-semibold",
+            "text-lg",
+            "text-xl",
+            "leading-relaxed",
+            "leading-tight",
+            "tracking-wide",
+            "rounded-lg",
+            "rounded-t-xl",
+            "rounded-b-md",
+            "shadow-md",
+            "shadow-lg",
+            "opacity-90",
+            "border",
+            "border-2",
+            "border-solid",
+            "w-full",
+            "w-1/2",
+            "max-w-xl",
+            "min-w-0",
+            "h-auto",
+            "h-32",
+            "max-h-64",
+            "text-center",
+            "text-left",
+            "uppercase",
+            "underline",
+            "italic",
+            "truncate",
+            "block",
+            "inline-block",
+            "hidden",
+            "overflow-hidden",
+            "visible",
             # Filtered classes that should be ignored
-            "flex", "grid", "hover:bg-blue-600", "md:p-8"
+            "flex",
+            "grid",
+            "hover:bg-blue-600",
+            "md:p-8",
         ]
         html = f'<div class="{" ".join(classes)}">Content</div>'
         output = convert(html)
@@ -96,10 +135,7 @@ class TestManyElements:
 
     def test_100_elements(self) -> None:
         """Test document with 100 styled elements."""
-        elements = [
-            f'<p class="text-sm text-gray-600 mb-2">Paragraph {i}</p>'
-            for i in range(100)
-        ]
+        elements = [f'<p class="text-sm text-gray-600 mb-2">Paragraph {i}</p>' for i in range(100)]
         html = f"<div>{''.join(elements)}</div>"
         output = convert(html)
 
@@ -218,7 +254,7 @@ class TestPerformance:
         avg_time = self.measure_conversion_time(html)
 
         # Simple conversion should be < 10ms
-        assert avg_time < 0.01, f"Simple conversion too slow: {avg_time*1000:.2f}ms"
+        assert avg_time < 0.01, f"Simple conversion too slow: {avg_time * 1000:.2f}ms"
 
     def test_medium_conversion_speed(self) -> None:
         """Test medium complexity conversion speed."""
@@ -242,7 +278,7 @@ class TestPerformance:
         avg_time = self.measure_conversion_time(html)
 
         # Medium conversion should be < 50ms
-        assert avg_time < 0.05, f"Medium conversion too slow: {avg_time*1000:.2f}ms"
+        assert avg_time < 0.05, f"Medium conversion too slow: {avg_time * 1000:.2f}ms"
 
     def test_converter_reuse_performance(self) -> None:
         """Test that reusing converter is faster than creating new ones."""
@@ -281,7 +317,7 @@ class TestTransformerPerformance:
         elapsed = time.time() - start
 
         # 1000 transformations should be < 100ms
-        assert elapsed < 0.1, f"Transform too slow: {elapsed*1000:.2f}ms for 1000 ops"
+        assert elapsed < 0.1, f"Transform too slow: {elapsed * 1000:.2f}ms for 1000 ops"
 
     def test_multiple_class_transform_speed(self, transformer: CSSTransformer) -> None:
         """Test multiple class transformation speed."""
@@ -293,7 +329,7 @@ class TestTransformerPerformance:
         elapsed = time.time() - start
 
         # Should be reasonably fast
-        assert elapsed < 0.5, f"Multiple transform too slow: {elapsed*1000:.2f}ms for 1000 ops"
+        assert elapsed < 0.5, f"Multiple transform too slow: {elapsed * 1000:.2f}ms for 1000 ops"
 
 
 class TestAllSpacingValues:
@@ -494,7 +530,10 @@ class TestMemoryUsage:
     def test_large_document_memory(self) -> None:
         """Test large document doesn't use excessive memory."""
         # Generate large HTML
-        elements = [f'<div class="p-4 m-2 bg-gray-{(i % 9 + 1) * 100}">Element {i}</div>' for i in range(1000)]
+        elements = [
+            f'<div class="p-4 m-2 bg-gray-{(i % 9 + 1) * 100}">Element {i}</div>'
+            for i in range(1000)
+        ]
         html = f"<div>{''.join(elements)}</div>"
 
         # Convert should complete without memory issues

@@ -1,6 +1,5 @@
 """Tests for the main converter module."""
 
-
 from tailwind_email import TailwindEmailConverter, convert
 from tailwind_email.converter import ConversionOptions
 

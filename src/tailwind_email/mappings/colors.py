@@ -5,6 +5,7 @@ These are the default Tailwind CSS v4 colors converted from OKLCH to hex.
 Based on https://tailwindcss.com/docs/customizing-colors
 """
 
+from __future__ import annotations
 
 # Complete Tailwind CSS v4 color palette
 COLOR_PALETTE: dict[str, str] = {
@@ -14,7 +15,6 @@ COLOR_PALETTE: dict[str, str] = {
     "transparent": "transparent",
     "black": "#000000",
     "white": "#ffffff",
-
     # Slate
     "slate-50": "#f8fafc",
     "slate-100": "#f1f5f9",
@@ -27,7 +27,6 @@ COLOR_PALETTE: dict[str, str] = {
     "slate-800": "#1e293b",
     "slate-900": "#0f172a",
     "slate-950": "#020617",
-
     # Gray
     "gray-50": "#f9fafb",
     "gray-100": "#f3f4f6",
@@ -40,7 +39,6 @@ COLOR_PALETTE: dict[str, str] = {
     "gray-800": "#1f2937",
     "gray-900": "#111827",
     "gray-950": "#030712",
-
     # Zinc
     "zinc-50": "#fafafa",
     "zinc-100": "#f4f4f5",
@@ -53,7 +51,6 @@ COLOR_PALETTE: dict[str, str] = {
     "zinc-800": "#27272a",
     "zinc-900": "#18181b",
     "zinc-950": "#09090b",
-
     # Neutral
     "neutral-50": "#fafafa",
     "neutral-100": "#f5f5f5",
@@ -66,7 +63,6 @@ COLOR_PALETTE: dict[str, str] = {
     "neutral-800": "#262626",
     "neutral-900": "#171717",
     "neutral-950": "#0a0a0a",
-
     # Stone
     "stone-50": "#fafaf9",
     "stone-100": "#f5f5f4",
@@ -79,7 +75,6 @@ COLOR_PALETTE: dict[str, str] = {
     "stone-800": "#292524",
     "stone-900": "#1c1917",
     "stone-950": "#0c0a09",
-
     # Red
     "red-50": "#fef2f2",
     "red-100": "#fee2e2",
@@ -92,7 +87,6 @@ COLOR_PALETTE: dict[str, str] = {
     "red-800": "#991b1b",
     "red-900": "#7f1d1d",
     "red-950": "#450a0a",
-
     # Orange
     "orange-50": "#fff7ed",
     "orange-100": "#ffedd5",
@@ -105,7 +99,6 @@ COLOR_PALETTE: dict[str, str] = {
     "orange-800": "#9a3412",
     "orange-900": "#7c2d12",
     "orange-950": "#431407",
-
     # Amber
     "amber-50": "#fffbeb",
     "amber-100": "#fef3c7",
@@ -118,7 +111,6 @@ COLOR_PALETTE: dict[str, str] = {
     "amber-800": "#92400e",
     "amber-900": "#78350f",
     "amber-950": "#451a03",
-
     # Yellow
     "yellow-50": "#fefce8",
     "yellow-100": "#fef9c3",
@@ -131,7 +123,6 @@ COLOR_PALETTE: dict[str, str] = {
     "yellow-800": "#854d0e",
     "yellow-900": "#713f12",
     "yellow-950": "#422006",
-
     # Lime
     "lime-50": "#f7fee7",
     "lime-100": "#ecfccb",
@@ -144,7 +135,6 @@ COLOR_PALETTE: dict[str, str] = {
     "lime-800": "#3f6212",
     "lime-900": "#365314",
     "lime-950": "#1a2e05",
-
     # Green
     "green-50": "#f0fdf4",
     "green-100": "#dcfce7",
@@ -157,7 +147,6 @@ COLOR_PALETTE: dict[str, str] = {
     "green-800": "#166534",
     "green-900": "#14532d",
     "green-950": "#052e16",
-
     # Emerald
     "emerald-50": "#ecfdf5",
     "emerald-100": "#d1fae5",
@@ -170,7 +159,6 @@ COLOR_PALETTE: dict[str, str] = {
     "emerald-800": "#065f46",
     "emerald-900": "#064e3b",
     "emerald-950": "#022c22",
-
     # Teal
     "teal-50": "#f0fdfa",
     "teal-100": "#ccfbf1",
@@ -183,7 +171,6 @@ COLOR_PALETTE: dict[str, str] = {
     "teal-800": "#115e59",
     "teal-900": "#134e4a",
     "teal-950": "#042f2e",
-
     # Cyan
     "cyan-50": "#ecfeff",
     "cyan-100": "#cffafe",
@@ -196,7 +183,6 @@ COLOR_PALETTE: dict[str, str] = {
     "cyan-800": "#155e75",
     "cyan-900": "#164e63",
     "cyan-950": "#083344",
-
     # Sky
     "sky-50": "#f0f9ff",
     "sky-100": "#e0f2fe",
@@ -209,7 +195,6 @@ COLOR_PALETTE: dict[str, str] = {
     "sky-800": "#075985",
     "sky-900": "#0c4a6e",
     "sky-950": "#082f49",
-
     # Blue
     "blue-50": "#eff6ff",
     "blue-100": "#dbeafe",
@@ -222,7 +207,6 @@ COLOR_PALETTE: dict[str, str] = {
     "blue-800": "#1e40af",
     "blue-900": "#1e3a8a",
     "blue-950": "#172554",
-
     # Indigo
     "indigo-50": "#eef2ff",
     "indigo-100": "#e0e7ff",
@@ -235,7 +219,6 @@ COLOR_PALETTE: dict[str, str] = {
     "indigo-800": "#3730a3",
     "indigo-900": "#312e81",
     "indigo-950": "#1e1b4b",
-
     # Violet
     "violet-50": "#f5f3ff",
     "violet-100": "#ede9fe",
@@ -248,7 +231,6 @@ COLOR_PALETTE: dict[str, str] = {
     "violet-800": "#5b21b6",
     "violet-900": "#4c1d95",
     "violet-950": "#2e1065",
-
     # Purple
     "purple-50": "#faf5ff",
     "purple-100": "#f3e8ff",
@@ -261,7 +243,6 @@ COLOR_PALETTE: dict[str, str] = {
     "purple-800": "#6b21a8",
     "purple-900": "#581c87",
     "purple-950": "#3b0764",
-
     # Fuchsia
     "fuchsia-50": "#fdf4ff",
     "fuchsia-100": "#fae8ff",
@@ -274,7 +255,6 @@ COLOR_PALETTE: dict[str, str] = {
     "fuchsia-800": "#86198f",
     "fuchsia-900": "#701a75",
     "fuchsia-950": "#4a044e",
-
     # Pink
     "pink-50": "#fdf2f8",
     "pink-100": "#fce7f3",
@@ -287,7 +267,6 @@ COLOR_PALETTE: dict[str, str] = {
     "pink-800": "#9d174d",
     "pink-900": "#831843",
     "pink-950": "#500724",
-
     # Rose
     "rose-50": "#fff1f2",
     "rose-100": "#ffe4e6",

@@ -2,9 +2,8 @@
 
 import pytest
 
-from tailwind_email import convert, TailwindEmailConverter
+from tailwind_email import TailwindEmailConverter, convert
 from tailwind_email.parser import TailwindClassParser
-from tailwind_email.transformer import CSSTransformer
 
 
 class TestMalformedHTML:
@@ -45,7 +44,7 @@ class TestMalformedHTML:
 
     def test_no_quotes_attribute(self) -> None:
         """Test attributes without quotes (valid in HTML5)."""
-        html = '<div class=p-4>Content</div>'
+        html = "<div class=p-4>Content</div>"
         output = convert(html)
         assert "padding: 16px" in output
 
@@ -59,11 +58,11 @@ class TestMalformedHTML:
 
     def test_newlines_in_class(self) -> None:
         """Test newlines in class attribute."""
-        html = '''<div class="
+        html = """<div class="
             p-4
             bg-blue-500
             text-white
-        ">Content</div>'''
+        ">Content</div>"""
         output = convert(html)
         assert "padding: 16px" in output
         assert "background-color: #3b82f6" in output
@@ -504,8 +503,12 @@ class TestIntegration:
     def test_complete_email_workflow(self) -> None:
         """Test a complete email template conversion workflow."""
         # Simulate a typical email template workflow
-        header = '<div class="bg-blue-600 p-6 text-center text-white text-xl font-bold">Header</div>'
-        content = '<div class="p-8 bg-white"><p class="text-gray-600 leading-relaxed">Content</p></div>'
+        header = (
+            '<div class="bg-blue-600 p-6 text-center text-white text-xl font-bold">Header</div>'
+        )
+        content = (
+            '<div class="p-8 bg-white"><p class="text-gray-600 leading-relaxed">Content</p></div>'
+        )
         footer = '<div class="bg-gray-100 p-4 text-center text-gray-500 text-sm">Footer</div>'
 
         # Convert each section

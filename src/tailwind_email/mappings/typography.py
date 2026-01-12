@@ -2,7 +2,6 @@
 Tailwind CSS typography utilities.
 """
 
-
 # Font size classes with (font-size, line-height) in pixels
 FONT_SIZE_CLASSES: dict[str, tuple[str, str]] = {
     "text-xs": ("12px", "16px"),
@@ -41,7 +40,6 @@ LINE_HEIGHT_CLASSES: dict[str, str] = {
     "leading-normal": "1.5",
     "leading-relaxed": "1.625",
     "leading-loose": "2",
-
     # Numeric line heights (in spacing units -> px)
     "leading-3": "12px",
     "leading-4": "16px",

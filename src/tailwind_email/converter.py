@@ -135,12 +135,9 @@ class TailwindEmailConverter:
             pass
         elif self.options.preserve_unsupported_classes:
             # Keep only non-Tailwind classes
-            non_tailwind = [
-                c for c in original_classes
-                if not self.parser.is_tailwind_class(c)
-            ]
+            non_tailwind = [c for c in original_classes if not self.parser.is_tailwind_class(c)]
             if non_tailwind:
-                element["class"] = non_tailwind
+                element["class"] = " ".join(non_tailwind)
             else:
                 del element["class"]
         else:
@@ -214,7 +211,9 @@ def convert(html: str, options: Optional[dict[str, Any]] = None) -> str:
         if "preserve_classes" in options:
             conversion_options.preserve_classes = options["preserve_classes"]
         if "preserve_unsupported_classes" in options:
-            conversion_options.preserve_unsupported_classes = options["preserve_unsupported_classes"]
+            conversion_options.preserve_unsupported_classes = options[
+                "preserve_unsupported_classes"
+            ]
 
     converter = TailwindEmailConverter(conversion_options)
     return converter.convert(html)

@@ -106,9 +106,7 @@ class TestCSSTransformer:
         result = transformer.transform_class("text-lg")
         assert "mso-line-height-rule" in result
 
-    def test_transform_font_size_without_mso(
-        self, transformer_no_mso: CSSTransformer
-    ) -> None:
+    def test_transform_font_size_without_mso(self, transformer_no_mso: CSSTransformer) -> None:
         """Test font size without MSO properties."""
         result = transformer_no_mso.transform_class("text-lg")
         assert "mso-line-height-rule" not in result
@@ -320,9 +318,23 @@ class TestTransformerColorPalette:
     def test_all_color_scales(self, transformer: CSSTransformer) -> None:
         """Test main color scales."""
         colors = [
-            "red", "orange", "amber", "yellow", "lime", "green", "emerald",
-            "teal", "cyan", "sky", "blue", "indigo", "violet", "purple",
-            "fuchsia", "pink", "rose"
+            "red",
+            "orange",
+            "amber",
+            "yellow",
+            "lime",
+            "green",
+            "emerald",
+            "teal",
+            "cyan",
+            "sky",
+            "blue",
+            "indigo",
+            "violet",
+            "purple",
+            "fuchsia",
+            "pink",
+            "rose",
         ]
         for color in colors:
             for shade in [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]:

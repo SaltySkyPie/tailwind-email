@@ -791,12 +791,12 @@ class TestLargeContentTemplates:
                                     <img src="product{i}.jpg" class="w-20 h-20 rounded-lg">
                                 </td>
                                 <td class="pl-4 align-top">
-                                    <p class="font-semibold text-gray-900">Product {i+1}</p>
-                                    <p class="text-sm text-gray-500">SKU: PROD-{i+1:04d}</p>
-                                    <p class="text-sm text-gray-500">Qty: {i+1}</p>
+                                    <p class="font-semibold text-gray-900">Product {i + 1}</p>
+                                    <p class="text-sm text-gray-500">SKU: PROD-{i + 1:04d}</p>
+                                    <p class="text-sm text-gray-500">Qty: {i + 1}</p>
                                 </td>
                                 <td class="text-right align-top">
-                                    <p class="font-bold text-gray-900">${(i+1) * 19.99:.2f}</p>
+                                    <p class="font-bold text-gray-900">${(i + 1) * 19.99:.2f}</p>
                                 </td>
                             </tr>
                         </table>
@@ -818,7 +818,7 @@ class TestLargeContentTemplates:
                         <tr>
                             <td class="p-6">
                                 <table class="w-full">
-                                    {''.join(products)}
+                                    {"".join(products)}
                                     <tr>
                                         <td class="pt-4 text-right" colspan="2">
                                             <p class="text-gray-500">Subtotal:</p>

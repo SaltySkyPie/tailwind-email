@@ -67,6 +67,7 @@ target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "C4"]
+ignore = ["E501"]  # Line length - too many HTML strings in tests
 
 [tool.mypy]
 python_version = "3.9"

@@ -128,7 +128,7 @@ class CSSTransformer:
         # Padding classes
         for prefix, prop in PADDING_CLASSES.items():
             if cls.startswith(f"{prefix}-"):
-                value_part = cls[len(prefix) + 1:]
+                value_part = cls[len(prefix) + 1 :]
                 px_value = get_spacing_value(value_part, self.base_font_size)
                 if px_value:
                     if ";" in prop:
@@ -140,7 +140,7 @@ class CSSTransformer:
         # Margin classes
         for prefix, prop in MARGIN_CLASSES.items():
             if cls.startswith(f"{prefix}-"):
-                value_part = cls[len(prefix) + 1:]
+                value_part = cls[len(prefix) + 1 :]
                 px_value = get_spacing_value(value_part, self.base_font_size)
                 if px_value:
                     if ";" in prop:
@@ -227,10 +227,10 @@ class CSSTransformer:
 
         # Line height classes
         if cls in LINE_HEIGHT_CLASSES:
-            result: dict[str, str] = {"line-height": LINE_HEIGHT_CLASSES[cls]}
+            line_height_result: dict[str, str] = {"line-height": LINE_HEIGHT_CLASSES[cls]}
             if self.include_mso:
-                result["mso-line-height-rule"] = "exactly"
-            return result
+                line_height_result["mso-line-height-rule"] = "exactly"
+            return line_height_result
 
         # Letter spacing classes
         if cls in LETTER_SPACING_PX:
@@ -297,10 +297,27 @@ class CSSTransformer:
         """Transform color classes."""
         # Text color: text-{color}-{shade} or text-{color}-{shade}/{opacity}
         if cls.startswith("text-") and not cls.startswith(
-            ("text-left", "text-center", "text-right", "text-justify",
-             "text-start", "text-end", "text-xs", "text-sm", "text-base",
-             "text-lg", "text-xl", "text-2xl", "text-3xl", "text-4xl",
-             "text-5xl", "text-6xl", "text-7xl", "text-8xl", "text-9xl")
+            (
+                "text-left",
+                "text-center",
+                "text-right",
+                "text-justify",
+                "text-start",
+                "text-end",
+                "text-xs",
+                "text-sm",
+                "text-base",
+                "text-lg",
+                "text-xl",
+                "text-2xl",
+                "text-3xl",
+                "text-4xl",
+                "text-5xl",
+                "text-6xl",
+                "text-7xl",
+                "text-8xl",
+                "text-9xl",
+            )
         ):
             color_part = cls[5:]  # Remove 'text-'
             color, opacity = parse_color_with_opacity(color_part)
@@ -311,10 +328,27 @@ class CSSTransformer:
 
         # Background color: bg-{color}-{shade}
         if cls.startswith("bg-") and not cls.startswith(
-            ("bg-auto", "bg-cover", "bg-contain", "bg-fixed", "bg-local",
-             "bg-scroll", "bg-clip-", "bg-origin-", "bg-repeat", "bg-no-repeat",
-             "bg-repeat-", "bg-gradient-", "bg-none", "bg-bottom", "bg-center",
-             "bg-left", "bg-right", "bg-top", "bg-blend-")
+            (
+                "bg-auto",
+                "bg-cover",
+                "bg-contain",
+                "bg-fixed",
+                "bg-local",
+                "bg-scroll",
+                "bg-clip-",
+                "bg-origin-",
+                "bg-repeat",
+                "bg-no-repeat",
+                "bg-repeat-",
+                "bg-gradient-",
+                "bg-none",
+                "bg-bottom",
+                "bg-center",
+                "bg-left",
+                "bg-right",
+                "bg-top",
+                "bg-blend-",
+            )
         ):
             color_part = cls[3:]  # Remove 'bg-'
             color, opacity = parse_color_with_opacity(color_part)
@@ -328,18 +362,38 @@ class CSSTransformer:
         if cls.startswith("border-"):
             # Non-color border classes that should be excluded
             non_color_prefixes = (
-                "border-0", "border-2", "border-4", "border-8",
-                "border-t-", "border-r-", "border-b-", "border-l-",
-                "border-x-", "border-y-",
-                "border-t$", "border-r$", "border-b$", "border-l$",
-                "border-x$", "border-y$",
+                "border-0",
+                "border-2",
+                "border-4",
+                "border-8",
+                "border-t-",
+                "border-r-",
+                "border-b-",
+                "border-l-",
+                "border-x-",
+                "border-y-",
+                "border-t$",
+                "border-r$",
+                "border-b$",
+                "border-l$",
+                "border-x$",
+                "border-y$",
             )
             non_color_exact = {
-                "border-t", "border-r", "border-b", "border-l",
-                "border-x", "border-y",
-                "border-solid", "border-dashed", "border-dotted",
-                "border-double", "border-hidden", "border-none",
-                "border-collapse", "border-separate",
+                "border-t",
+                "border-r",
+                "border-b",
+                "border-l",
+                "border-x",
+                "border-y",
+                "border-solid",
+                "border-dashed",
+                "border-dotted",
+                "border-double",
+                "border-hidden",
+                "border-none",
+                "border-collapse",
+                "border-separate",
             }
 
             # Check if it's a non-color class
@@ -364,9 +418,19 @@ class CSSTransformer:
 
         # Outline color: outline-{color}-{shade}
         if cls.startswith("outline-") and not cls.startswith(
-            ("outline-0", "outline-1", "outline-2", "outline-4", "outline-8",
-             "outline-none", "outline-solid", "outline-dashed",
-             "outline-dotted", "outline-double", "outline-offset")
+            (
+                "outline-0",
+                "outline-1",
+                "outline-2",
+                "outline-4",
+                "outline-8",
+                "outline-none",
+                "outline-solid",
+                "outline-dashed",
+                "outline-dotted",
+                "outline-double",
+                "outline-offset",
+            )
         ):
             color_part = cls[8:]  # Remove 'outline-'
             color, opacity = parse_color_with_opacity(color_part)
